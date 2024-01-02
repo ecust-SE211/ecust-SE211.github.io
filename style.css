@@ -10,7 +10,16 @@
 	background: linear-gradient(45deg, #555, #eee);
 	z-index: 1;
 }
-
+#score{
+	font-size: 2rem;
+	position: absolute;
+	font-weight: bold;
+	color: #333;
+	top: 0;
+	right: 0;
+	margin: 1rem;
+	z-index: 3;
+}
 .title {
 	position: absolute;
 	left: 50%;
@@ -22,7 +31,7 @@
 	-webkit-text-fill-color: transparent;
 	-webkit-background-clip: text;
 	animation: backgroundTranslate 5s linear infinite;
-	z-index: 7;
+	z-index: 3;
 	transform: translate(-50%, -50%) rotate(-20deg) skew(-20deg);
 	background-size: 50% 50%;
 }
@@ -35,12 +44,13 @@
 	font-size: 6rem;
 	font-weight: bold;
 	background: linear-gradient(115deg, #333 45%, transparent 45%, transparent 55%, #333 55%, #333);
+	/* background: linear-gradient(0deg, #333, transparent); */
 	-webkit-text-fill-color: transparent;
 	-webkit-background-clip: text;
 	animation: backgroundTranslate 5s linear infinite;
 	background-size: 50% 50%;
 	transform: rotate(-20deg) skew(-20deg) scaleY(50%) skew(45deg) translateX(-4.2rem) translateY(-17.5rem);
-	z-index: 4;
+	z-index: 2;
 	filter: blur(0.18625rem);
 }
 
@@ -75,13 +85,18 @@ svg {
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	transform: translate(-50%, -50%);
-	transition: top 0.3s linear, left 0.3s linear;
+	transition: top 0.3s linear, left 0.3s linear, width 300ms ease-in-out, height 300ms ease-in-out;
 	transform-origin: 50% 50%;
+	animation: rotateWithTranslate 2s infinite linear;
+	animation-play-state: paused;
 	z-index: 10;
+	cursor: none;
 }
 
 .zxq:hover {
-	animation: rotateWithTranslate 0.5s infinite linear;
+	width: 4rem;
+	height: 6rem;
+	animation: rotateWithTranslate 2s infinite linear;
 }
 
 @keyframes rotateWithTranslate {
@@ -89,9 +104,26 @@ svg {
 		transform: translate(-50%, -50%) rotate(0deg);
 	}
 
+	50% {
+		transform: translate(-50%, -50%) rotate(180deg);
+	}
+
 	100% {
 		transform: translate(-50%, -50%) rotate(360deg);
 	}
+}
+
+.dot {
+	position: absolute;
+	width: 3rem;
+	height: 4rem;
+	background-image: url(./src/zxq.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	transform: translate(-50%, -50%);
+	transition: top 2s linear, left 3s linear;
+	z-index: 9;
 }
 
 .container {
@@ -100,7 +132,7 @@ svg {
 
 .line {
 	position: absolute;
-	z-index: 3;
+	z-index: 5;
 	stroke: black;
 	stroke-width: 2;
 	stroke-linecap: round;
