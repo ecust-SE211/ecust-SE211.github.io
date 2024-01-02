@@ -11,36 +11,41 @@
 	z-index: 1;
 }
 
-#title {
-	position: relative;
+.title {
+	position: absolute;
 	white-space: nowrap;
 	font-size: 6rem;
 	font-weight: bold;
-	background: linear-gradient(-45deg, #555 25%, #eee 25%, #eee 50%, #555 75%);
+	background: linear-gradient(115deg, #555 45%, transparent 45%, transparent 55%, #555 55%, #555);
 	-webkit-text-fill-color: transparent;
 	-webkit-background-clip: text;
-	animation: backgroundTranslate 1s linear infinite;
+	animation: backgroundTranslate 5s linear infinite;
 	z-index: 7;
-	background-size: 50% 100%;
+	background-size: 50% 50%;
 }
 
-#title::before {
-	content: "Ecust-SE211";
+.titleS {
 	position: absolute;
-	background: linear-gradient(0deg, #555, #555);
+	white-space: nowrap;
+	font-size: 6rem;
+	font-weight: bold;
+	background: linear-gradient(115deg, #333 45%, transparent 45%, transparent 55%, #333 55%, #333);
 	-webkit-text-fill-color: transparent;
 	-webkit-background-clip: text;
-	transform: scaleY(50%) skew(45deg) translateX(-4.9rem) translateY(2.5rem);
+	animation: backgroundTranslate 5s linear infinite;
+	background-size: 50% 50%;
+	transform: scaleY(50%) skew(45deg) translateX(-4.9rem) translateY(2.4rem);
 	z-index: 4;
+	filter: blur(0.25rem);
 }
 
 @keyframes backgroundTranslate {
 	0% {
-		background-position: 0% 100%;
+		background-position: 100% 0%;
 	}
 
 	100% {
-		background-position: 100% 0%;
+		background-position: 0% 100%;
 	}
 }
 
