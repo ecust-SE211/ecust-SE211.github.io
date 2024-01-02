@@ -13,6 +13,8 @@
 
 .title {
 	position: absolute;
+	left: 50%;
+	top: 50%;
 	white-space: nowrap;
 	font-size: 6rem;
 	font-weight: bold;
@@ -21,11 +23,14 @@
 	-webkit-background-clip: text;
 	animation: backgroundTranslate 5s linear infinite;
 	z-index: 7;
+	transform: translate(-50%, -50%) rotate(-20deg) skew(-20deg);
 	background-size: 50% 50%;
 }
 
 .titleS {
 	position: absolute;
+	left: 50%;
+	top: 50%;
 	white-space: nowrap;
 	font-size: 6rem;
 	font-weight: bold;
@@ -34,9 +39,9 @@
 	-webkit-background-clip: text;
 	animation: backgroundTranslate 5s linear infinite;
 	background-size: 50% 50%;
-	transform: scaleY(50%) skew(45deg) translateX(-4.9rem) translateY(2.4rem);
+	transform: rotate(-20deg) skew(-20deg) scaleY(50%) skew(45deg) translateX(-4.2rem) translateY(-17.5rem);
 	z-index: 4;
-	filter: blur(0.25rem);
+	filter: blur(0.18625rem);
 }
 
 @keyframes backgroundTranslate {
