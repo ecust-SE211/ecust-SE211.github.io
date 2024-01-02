@@ -3,8 +3,49 @@
 	padding: 0;
 }
 
-#frame {
+#bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(45deg, #555, #eee);
+	z-index: 1;
+}
+
+#title {
 	position: relative;
+	white-space: nowrap;
+	font-size: 6rem;
+	font-weight: bold;
+	background: linear-gradient(-45deg, #555 25%, #eee 25%, #eee 50%, #555 75%);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	animation: backgroundTranslate 1s linear infinite;
+	z-index: 7;
+	background-size: 50% 100%;
+}
+
+#title::before {
+	content: "Ecust-SE211";
+	position: absolute;
+	background: linear-gradient(0deg, #555, #555);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	transform: scaleY(50%) skew(45deg) translateX(-4.9rem) translateY(2.5rem);
+	z-index: 4;
+}
+
+@keyframes backgroundTranslate {
+	0% {
+		background-position: 0% 100%;
+	}
+
+	100% {
+		background-position: 100% 0%;
+	}
+}
+
+#frame {
+	position: absolute;
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
@@ -26,6 +67,7 @@ svg {
 	transform: translate(-50%, -50%);
 	transition: top 0.3s linear, left 0.3s linear;
 	transform-origin: 50% 50%;
+	z-index: 10;
 }
 
 .zxq:hover {
@@ -48,7 +90,7 @@ svg {
 
 .line {
 	position: absolute;
-	z-index: -1;
+	z-index: 3;
 	stroke: black;
 	stroke-width: 2;
 	stroke-linecap: round;
