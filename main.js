@@ -70,7 +70,7 @@ const app = () => {
 			const dot = dots[i];
 			let offsetX = dot.offsetLeft - currentLeft;
 			let offsetY = dot.offsetTop - currentTop;
-			if (Math.abs(offsetX) < 30 && Math.abs(offsetY) < 30) {
+			if (Math.abs(offsetX) < 50 && Math.abs(offsetY) < 50) {
 				scoreLabel.innerHTML = `SCORE: ${++score}`
 				dot.style.transition =
 					`top ${Math.abs(offsetX)*200}ms linear, left ${Math.abs(offsetY)*200}ms linear`
@@ -98,6 +98,14 @@ const app = () => {
 			console.log("左键按下了！");
 			const ele = document.createElement("div")
 			ele.classList.add("dot")
+			let x = Math.random()
+			if (x > 0.525) {
+				ele.classList.add("type1")
+			} else if (x > 0.05) {
+				ele.classList.add("type2")
+			} else {
+				ele.classList.add("type3")
+			}
 			frame.appendChild(ele);
 			dotBlocks.push(new dotBlock(ele))
 		} else if (event.button === 2) {
